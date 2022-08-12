@@ -1,10 +1,6 @@
-import sys
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 
-sys.path.append("..")
-from utility import plot_settings
 
 # --------------------------------------------------------------
 # Import data
@@ -15,3 +11,12 @@ data = pd.read_csv(
     parse_dates=[0],
     index_col=[0],
 )
+
+
+# Plot single column
+data["sensor_00"].plot()
+
+# Plot columns in a loop
+for col in data.columns[:5]:
+    data[col].plot(figsize=(20, 5))
+    plt.show()
